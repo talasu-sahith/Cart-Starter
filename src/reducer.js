@@ -7,11 +7,10 @@ import {
   DISPLAY_ITEMS,
 } from "./actions";
 const reducer = (state, action) => {
-  if (action.type === "stateUpdate") {
-    console.log(action);
-    return { ...state, items: action.payload.cartArr };
+  if (action.type === CLEAR_CART) {
+    return { ...state, cart: new Map() };
   }
-  return state;
+  throw new Error(`no matching for "${action.type}" - action type is found`);
 };
 
 export default reducer;
