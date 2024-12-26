@@ -1,6 +1,6 @@
 import { useContext, useReducer, useEffect, createContext } from "react";
 import reducer from "./reducer";
-import cartItems from "./data";
+// import cartItems from "./data";
 import {
   CLEAR_CART,
   REMOVE_FROM,
@@ -8,14 +8,16 @@ import {
   DECREASE,
   LOADING,
   DISPLAY_ITEMS,
+  STOP,
 } from "./actions";
 import { total } from "./utlis";
+const url = "https://www.course-api.com/react-useReducer-cart-project";
 
 const AppContext = createContext();
 
 const initialState = {
-  loading: false,
-  cart: new Map(cartItems.map((items) => [items.id, items])),
+  loading: true,
+  cart: new Map(),
 };
 
 export const AppProvider = ({ children }) => {
@@ -35,6 +37,24 @@ export const AppProvider = ({ children }) => {
   const handleDecrement = (id) => {
     dispatch({ type: DECREASE, payload: { id } });
   };
+  const stopLoading = () => {
+    dispatch({ type: STOP });
+  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const resp = await fetch(url);
+
+        const response = await resp.json();
+        dispatch({ type: DISPLAY_ITEMS, payload: { response } });
+      } catch (error) {
+        console.log(error);
+      }
+      stopLoading();
+    };
+    fetchData();
+  }, []);
+
   return (
     <AppContext.Provider
       value={{

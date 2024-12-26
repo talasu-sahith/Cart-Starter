@@ -4,3 +4,4 @@ export const DECREASE = "DECREASE";
 export const INCREASE = "INCREASE";
 export const LOADING = "LOADING";
 export const DISPLAY_ITEMS = "DISPLAY_ITEMS";
+export const STOP = "stop";

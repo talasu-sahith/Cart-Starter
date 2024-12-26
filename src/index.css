@@ -66,8 +66,8 @@ html {
 
 body {
   background: var(--backgroundColor);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   line-height: 1;
   color: var(--textColor);
@@ -260,21 +260,21 @@ Navbar
 */
 
 nav {
-  background: var(--primary-500);
+  background-color: var(--primary-500);
   height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .nav-center {
-  width: var(--view-width);
+  width: 90vw;
   max-width: var(--fixed-width);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 nav h4 {
-  color: var(--white);
+  color: white;
 }
 .nav-container {
   display: block;
@@ -290,7 +290,7 @@ nav h4 {
   right: -0.85rem;
   width: 1.75rem;
   height: 1.75rem;
-  background: var(--primary-300);
+  background-color: var(--primary-300);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -300,18 +300,20 @@ nav h4 {
   color: var(--white);
   font-size: 1.25rem;
 }
+
 /*
 =============== 
 Cart
 ===============
 */
+
 .cart {
-  min-height: calc(100vh - 5rem);
+  min-height: calc(100vh-5rem);
   width: var(--view-width);
   max-width: var(--fixed-width);
-  margin: 0 auto;
+  margin: 0, auto;
   margin-top: 40px;
-  padding: 2.5rem 0;
+  padding: 2.5rem 0rem;
 }
 .cart h2 {
   text-transform: uppercase;
@@ -356,10 +358,9 @@ Cart Item
   display: grid;
   align-items: center;
   grid-template-columns: auto 1fr auto;
-  column-gap: 1.5rem;
-  margin: 1.5rem 0;
+  column-gap: 0.5rem;
+  margin: 1rem 0;
 }
-
 .cart-item img {
   width: 5rem;
   height: 5rem;
@@ -391,7 +392,7 @@ Cart Item
 }
 .amount-btn {
   width: 1.5rem;
-  background: transparent;
+  background-color: transparent;
   border-color: transparent;
   cursor: pointer;
 }

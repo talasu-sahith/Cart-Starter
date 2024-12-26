@@ -5,6 +5,7 @@ import {
   DECREASE,
   LOADING,
   DISPLAY_ITEMS,
+  STOP,
 } from "./actions";
 const reducer = (state, action) => {
   if (action.type === CLEAR_CART) {
@@ -39,6 +40,15 @@ const reducer = (state, action) => {
 
     const newItem = { ...item, amount: item.amount - 1 };
     newCart.set(itemId, newItem);
+    return { ...state, cart: newCart };
+  }
+  if (action.type === STOP) {
+    return { ...state, loading: false };
+  }
+  if (action.type === DISPLAY_ITEMS) {
+    const newResponse = action.payload.response;
+    const newCart = new Map(newResponse.map((item) => [item.id, item]));
+
     return { ...state, cart: newCart };
   }
   throw new Error(`no matching for "${action.type}" - action type is found`);
