@@ -24,8 +24,16 @@ export const AppProvider = ({ children }) => {
     dispatch({ type: CLEAR_CART });
   };
 
+  const removeItem = (id) => {
+    dispatch({ type: REMOVE_FROM, payload: { id } });
+  };
+  const handleIncrement = (id) => {
+    dispatch({ type: INCREASE, payload: { id } });
+  };
   return (
-    <AppContext.Provider value={{ ...state, clearcart }}>
+    <AppContext.Provider
+      value={{ ...state, clearcart, removeItem, handleIncrement }}
+    >
       {children}
     </AppContext.Provider>
   );
